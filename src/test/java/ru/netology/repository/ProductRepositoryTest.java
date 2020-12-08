@@ -16,7 +16,7 @@ class ProductRepositoryTest {
 
 
     @Test
-    public void shouldSaveOneItem() {
+    public void shouldSaveItems() {
         repository.save(iphoneX);
         repository.save(javaBook);
         Product[] expected = new Product[]{iphoneX, javaBook};
@@ -42,7 +42,6 @@ class ProductRepositoryTest {
         Product[] expected = new Product[]{iphoneX, javaBook};
         Product[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
-
     }
 
 }
