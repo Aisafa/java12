@@ -3,7 +3,7 @@ package ru.netology.domain;
 import ru.netology.repository.ProductRepository;
 
 public class ProductManager {
-    ProductRepository repository= new ProductRepository();
+    ProductRepository repository = new ProductRepository();
 
     public ProductRepository getRepository() {
         return repository;
@@ -18,7 +18,7 @@ public class ProductManager {
         for (Product product : repository.findAll()) {
             if (matches(product, text)) {
                 Product[] tmp = new Product[result.length + 1];
-                System.arraycopy(result,0,tmp,0, result.length);
+                System.arraycopy(result, 0, tmp, 0, result.length);
                 tmp[tmp.length - 1] = product;
                 result = tmp;
             }
@@ -29,22 +29,17 @@ public class ProductManager {
     public boolean matches(Product product, String search) {
         if (product instanceof Book) {
             Book book = (Book) product;
-            if (book.getName().contains(search)) {
+            if (book.getName().contains(search))
                 return true;
-            }
-            if (book.getAuthor().contains(search)) {
+            if (book.getAuthor().contains(search))
                 return true;
-            }
-            return false;
-        } else if (product instanceof Smartphone) {
+        }
+        if (product instanceof Smartphone) {
             Smartphone smartphone = (Smartphone) product;
-            if (smartphone.getName().contains(search)) {
+            if (smartphone.getName().contains(search))
                 return true;
-            }
-            if (smartphone.getManufacturer().contains(search)) {
+            if (smartphone.getManufacturer().contains(search))
                 return true;
-            }
-            return false;
         }
         return false;
     }
